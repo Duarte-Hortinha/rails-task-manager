@@ -1,0 +1,10 @@
+<h1>Current TASKS in the list:</h1>
+<ol>
+  <% @tasks.each do |task| %>
+    <li><%= link_to task.name.upcase, task_path(task) %> | <%= link_to "Delete",
+  task_path(task),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete?"}
+%></li>
+  <% end %>
+</ol>
+<div class="btn btn-danger"><%= link_to "Create a new task", tasks_new_path %></div>
